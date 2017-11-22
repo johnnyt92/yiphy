@@ -1,0 +1,76 @@
+body {
+	height: 100%;
+	width: 100%;
+	background-image: url('../images/ramen3.jpg') ;
+	background-size: 100%;
+    background: url("../images/ramen3.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+h1 {
+	color: white;
+	padding: 10px 40px;
+	font-size: 96px;
+	font-style: oblique;;
+	font-weight: bold;
+	border: 5px solid white;
+	border-radius: 55px;
+}
+
+.container {
+	color: white;
+}
+.help-block{
+	color: white;
+	text-shadow: 2px 2px black;
+}
+
+#textinput::-webkit-input-placeholder{
+	color: white	
+}
+
+#textinput2::-webkit-input-placeholder{
+	color: white
+	
+}
+
+
+img {
+	height: 140px;
+	width:140px;
+}
+
+a{
+	position: relative;
+	left: 53%;
+}
+
+.giphContainer{
+	margin-top: 5%;
+}
+
+#distance{
+	margin-left: 30%;
+}
+
+#images{
+	float:left;
+}
+
+@media screen and (max-width: 991px) {
+    a {
+       left:20%;
+    }
+}
+
+#tracker{
+	margin-bottom: 0;
+	color: white;
+}
+
+h1{
+	margin-top: 0;
+}
