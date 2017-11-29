@@ -49,7 +49,7 @@ function yelpSearch(){
 		url: yelpUrl,
 		method: "GET",
 		headers: {'Authorization': token},
-		data: {term: term, location: location, radius: radius, price: price, limit: '10'}
+		data: {term: term, location: location, radius: radius, price: price, limit: '10', open_now: true}
 	}).done(function(response){
 		var resultsYelp = response.businesses;
 		var category = $("#textinput").val().trim();
@@ -99,6 +99,18 @@ function yelpSearch(){
 		});
 	});
 }
+
+$(".type").click(function(){
+   $(".type").removeClass("active");
+   $(this).addClass("active");
+});
+
+$(".type2").click(function(){
+   $(".type2").removeClass("active");
+   $(this).addClass("active");
+});
+
+			
 
 // // //calling the giphy API, need to edit with variable names, make sure calling same HTML elements
 	$(document).on("click", "#search", yelpSearch);
