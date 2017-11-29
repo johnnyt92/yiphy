@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
- <meta charset="utf-8">
+<meta charset="utf-8">
 
 <head>
   <title></title>
@@ -14,21 +14,21 @@
   
   <!--linking css file onto html-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <!-- Compiled and minified JavaScript -->
 
-<!--Import Google Icon Font-->
+  <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--Import materialize.css-->
-<!--    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
-<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <!--Import materialize.css-->
+  <!--    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
-<!--Let browser know website is optimized for mobile-->
+  <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
 <body>
-  <div class=" outter_container">
+  <div class="outter_container">
     <div id="tracker"></div>
     <div class="container">
       <center><h1 class="header center teal=text text lighten-2">Yiphy
@@ -37,51 +37,56 @@
       <div class="container">
         <div class="row">
           <div class="form-group">
- <!--            <label class="col-md-2 control-label" for="textinput"></label> -->
-            <div class="col-md-5">
-              <input id="textinput" name="textinput" type="text" placeholder="Search for (e.g. burger, chicken breast)" class="for-control input-md">
-              <span class="help-block"></span>
-            </div>
-            <div class="col-md-5">
-        <input id="textinput2" name="textinput" type="text" placeholder="Enter a location" class="for-control input-md">
-        <span class="help-block"></span>
-        </div>
-      <div class="col-md-2">
-        <button id="search" name="singlebutton" class="btn btn-default">Search</button>
-      </div>
-
+           <!--            <label class="col-md-2 control-label" for="textinput"></label> -->
+           <div class="col-md-5">
+            <input id="textinput" name="textinput" type="text" placeholder="Search for (e.g. burger, chicken breast)" class="for-control input-md">
+            <!-- <span class="help-block"></span> -->
           </div>
-        </div>        
-      </div>
+          <div class="col-md-5">
+            <input id="textinput2" name="textinput" type="text" placeholder="Enter a location" class="for-control input-md">
+            <!-- <span class="help-block"></span> -->
+          </div>
+          <div class="col-md-2">
+            <button id="search" name="singlebutton" class="btn btn-default">Search</button>
+          </div>
+
+        </div>
+      </div>        
     </div>
   </div>
+</div>
 
 <!--   <br> -->
 
-   <div class="container">
+<div class="container">
+
+  <div class="container-radius">
     <div class="col-xs-6" style="align-content: center">
-      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups" id="distance">
+      <!-- <div class="btn-toolbar mb-2" role="toolbar" aria-label="Toolbar with button groups" id="distance"> -->
         <h5>Distance (miles)</h5>
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <button type="button" class="btn btn-secondary" id="radius" value="482">0.3</button>
-          <button type="button" class="btn btn-secondary" id="radius" value="1609">1</button>
-          <button type="button" class="btn btn-secondary" id="radius" value="8046">5</button>
-          <button type="button" class="btn btn-secondary" id="radius" value="16093">10</button>
+        <div class="btn-group mr-1" aria-label="First group">
+          <button type="button" class="btn btn-primary type" id="radius" value="482">0.3</button>
+          <button type="button" class="btn btn-primary type" id="radius" value="1609">1</button>
+          <button type="button" class="btn btn-primary type" id="radius" value="8046">5</button>
+          <button type="button" class="btn btn-primary type" id="radius" value="16093">10</button>
         </div>
       </div>
     </div>
+  <!-- </div> -->
+  <div class="container-price">
     <div class="col-xs-6" style="align-content: center">
       <h5>Price</h5>
-      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-      <div class="btn-group mr-2" role="group" aria-label="Second group">
-          <button type="button" class="btn btn-secondary" id="price" value="1">$</button>
-          <button type="button" class="btn btn-secondary" id="price" value="2">$$</button>
-          <button type="button" class="btn btn-secondary" id="price" value="3">$$$</button>
-          <button type="button" class="btn btn-secondary" id="price" value="4">$$$$</button>
+      <!-- <div class="btn-toolbar mb-2" role="toolbar" aria-label="Toolbar with button groups"> -->
+        <div class="btn-group mr-2" aria-label="Second group">
+          <button type="button" class="btn btn-secondary type2" id="price" value="1">$</button>
+          <button type="button" class="btn btn-secondary type2" id="price" value="2">$$</button>
+          <button type="button" class="btn btn-secondary type2" id="price" value="3">$$$</button>
+          <button type="button" class="btn btn-secondary type2" id="price" value="4">$$$$</button>
         </div>
       </div>
     </div>
-  </div>
+ <!--  </div> -->
+</div>
 
 <div class="col-lg 12, col-md-6" style="align-content: center" id="images">
   <div class="giphContainer">
@@ -89,15 +94,14 @@
     </div>
     <div class="row" id="row2">
     </div>
-    </div>
   </div>
-  
-  
-   <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+</div>
 
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-       <script type="text/javascript" src="assets/javascript/java.js"></script>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/javascript/java.js"></script>
 </body>
 </html>
