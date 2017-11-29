@@ -23,6 +23,15 @@ h1 {
 .container {
 	color: white;
 }
+
+.container-price .active {
+	background: #204d74;
+	text-decoration: none;
+
+}
+
+
+
 .help-block{
 	color: white;
 	text-shadow: 2px 2px black;
