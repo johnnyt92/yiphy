@@ -27,9 +27,9 @@ connectionsRef.on("value", function(snap){
 })
 
 $( document ).ready(function() {
-//calling on the yelp API with the generated token, token last a little over a week, need to generate new token weekly
-
-var token = "Bearer wopcKzKvQ8zOzN6orh38QU_To8Z1LV8sM0xhJRdjimc30vz2WlSnHWrY0LZOL9fARaBtV5tYPdJnSh1ET_2tKHXB0KfgvoT_evx7Q1jlJI4IydM-OzjKfe79m4IQWnYx";
+var clientId = "GVzLb3etgppDU-TL0QTdmw";
+var clientSecret = "WPZaGbBfqsgJcCxBIZPq6f61Dz38o3IWeBCZK1AywQInXMY2ufU4w9yN5tUHx8nV";
+var token = "";
 var yelpUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
 var term = "";
 var location = "";
@@ -42,10 +42,9 @@ $(document).on("click", "#price", function(){
 		price = $(this).val();
 	})
 
-function yelpSearch(){
-	term = $("#textinput").val().trim();
-	location = $("#textinput2").val().trim();
+function yelpToken(){
 	$.ajax({
+<<<<<<< HEAD
 		url: yelpUrl,
 		method: "GET",
 		headers: {'Authorization': token},
@@ -57,33 +56,52 @@ function yelpSearch(){
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + apiKey;
 		var display = false;
 		var yelpLink = "";
+=======
+		method: "POST",
+		url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token",
+		data: {'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret}
+	}).done(function(response3){
+		token = "Bearer " + response3.access_token;
+		term = $("#textinput").val().trim();
+		location = $("#textinput2").val().trim();
+>>>>>>> 466602045cbca664f336952fc963c57a5fc092ed
 		$.ajax({
-			url: queryURL,
-			method: "GET"
-		}).done(function(response2){
-			console.log(resultsYelp)
-			var resultsGiphy = response2.data;
-			console.log(resultsGiphy);
-			$("#textinput").val('');
-			$("#textinput2").val('');
-			term = "";
-			location = "";
-			radius = "";
-			price = "";
-			if (display = true){
-				$("#row1").empty();
-				$("#row2").empty();
-				for(var i = 0; i < 10; ++i){
-					var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
-					if( i < 5){
+			url: yelpUrl,
+			method: "GET",
+			headers: {'Authorization': token},
+			data: {term: term, location: location, radius: radius, price: price, limit: '10', open_now: true}
+		}).done(function(response){
+			var resultsYelp = response.businesses;
+			var category = $("#textinput").val().trim();
+			var apiKey = "HnNAzp85eI02Rb98Lo5C1oOviJp4OHJT";
+			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + apiKey;
+			var display = false;
+			var yelpLink = "";
+			$.ajax({
+				url: queryURL,
+				method: "GET"
+			}).done(function(response2){
+				var resultsGiphy = response2.data;
+				$("#textinput").val('');
+				$("#textinput2").val('');
+				term = "";
+				location = "";
+				radius = "";
+				price = "";
+				if (display = true){
+					$("#row1").empty();
+					$("#row2").empty();
+					for(var i = 0; i < 10; ++i){
+						var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
+						if( i < 5){
 							$("#row1").append(giphyLinks);
 						}
-					else if (i >= 5){
+						else if (i >= 5){
 							$("#row2").append(giphyLinks);
 						}
 
 					}
-			}
+				}
 			else if (display = false){
 				for(var i = 0; i < 10; ++i){
 					var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
@@ -98,8 +116,10 @@ function yelpSearch(){
 			}
 		});
 	});
+	})
 }
 
+<<<<<<< HEAD
 $(".type").click(function(){
    $(".type").removeClass("active");
    $(this).addClass("active");
@@ -115,3 +135,7 @@ $(".type2").click(function(){
 // // //calling the giphy API, need to edit with variable names, make sure calling same HTML elements
 	$(document).on("click", "#search", yelpSearch);
 });
+=======
+	$(document).on("click", "#search", yelpToken);
+});
+>>>>>>> 466602045cbca664f336952fc963c57a5fc092ed
