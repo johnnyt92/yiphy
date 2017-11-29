@@ -48,9 +48,7 @@ function yelpToken(){
 		url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token",
 		data: {'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret}
 	}).done(function(response3){
-		console.log(response3);
 		token = "Bearer " + response3.access_token;
-		console.log(token);
 		term = $("#textinput").val().trim();
 		location = $("#textinput2").val().trim();
 		$.ajax({
@@ -69,9 +67,7 @@ function yelpToken(){
 				url: queryURL,
 				method: "GET"
 			}).done(function(response2){
-				console.log(resultsYelp)
 				var resultsGiphy = response2.data;
-				console.log(resultsGiphy);
 				$("#textinput").val('');
 				$("#textinput2").val('');
 				term = "";
