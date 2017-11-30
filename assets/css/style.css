@@ -63,7 +63,7 @@ img {
 
 a{
 	position: relative;
-	left: 60%;
+	left: 55%;
 }
 
 .giphContainer{
@@ -71,7 +71,8 @@ a{
 }
 
 #distance{
-	margin-left: 30%;
+	position:relative;
+	left: 15%;
 }
 
 #images{
