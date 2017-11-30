@@ -115,4 +115,9 @@ $(".type2").click(function(){
 });
 
 	$(document).on("click", "#search", yelpToken);
+	$("#textinput2").keydown(function(e){
+    if(e.which === 13){
+        yelpToken();
+    }
+});
 });
