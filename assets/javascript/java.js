@@ -32,6 +32,7 @@ var clientSecret = "WPZaGbBfqsgJcCxBIZPq6f61Dz38o3IWeBCZK1AywQInXMY2ufU4w9yN5tUH
 var token = "";
 var yelpUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
 var term = "";
+var randTerm = ["ramen", "chicken wings", "hamburgers", "korean", "pho", "steak", "mexican", "italian", "sushi", "beer"]
 var location = "";
 var radius = "";
 var price = "";
@@ -50,6 +51,9 @@ function yelpToken(){
 	}).done(function(response3){
 		token = "Bearer " + response3.access_token;
 		term = $("#textinput").val().trim();
+		if (term === ""){
+			term = randTerm[Math.floor((Math.random()*10)+1)]
+		}
 		location = $("#textinput2").val().trim();
 		$.ajax({
 			url: yelpUrl,
@@ -58,7 +62,7 @@ function yelpToken(){
 			data: {term: term, location: location, radius: radius, price: price, limit: '10', open_now: true}
 		}).done(function(response){
 			var resultsYelp = response.businesses;
-			var category = $("#textinput").val().trim();
+			var category = term;
 			var apiKey = "HnNAzp85eI02Rb98Lo5C1oOviJp4OHJT";
 			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + apiKey;
 			var display = false;
