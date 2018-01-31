@@ -84,10 +84,10 @@ function yelpToken(){
 					for(var i = 0; i < 10; ++i){
 						var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
 						if( i < 5){
-							$("#row1").append(giphyLinks);
+							$("#row1").append(giphyLinks).attr("id", i);
 						}
 						else if (i >= 5){
-							$("#row2").append(giphyLinks);
+							$("#row2").append(giphyLinks).attr("id", i);
 						}
 
 					}
@@ -96,10 +96,10 @@ function yelpToken(){
 				for(var i = 0; i < 10; ++i){
 					var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
 					if( i < 5){
-							$("#row1").append(giphyLinks);
+							$("#row1").append(giphyLinks).attr("id", i);
 						}
 					else if (i >= 5){
-							$("#row2").append(giphyLinks);
+							$("#row2").append(giphyLinks).attr("id", i);
 						}
 					display = true;
 				}
