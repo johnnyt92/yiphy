@@ -82,24 +82,24 @@ function yelpToken(){
 					$("#row1").empty();
 					$("#row2").empty();
 					for(var i = 0; i < 10; ++i){
-						var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
+						var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url)).attr("id", i);
 						if( i < 5){
-							$("#row1").append(giphyLinks).attr("id", i);
+							$("#row1").append(giphyLinks);
 						}
 						else if (i >= 5){
-							$("#row2").append(giphyLinks).attr("id", i);
+							$("#row2").append(giphyLinks);
 						}
 
 					}
 				}
 			else if (display = false){
 				for(var i = 0; i < 10; ++i){
-					var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url));
+					var  giphyLinks = $("<a target='_blank'>").attr('href', resultsYelp[i].url).html($("<img>").attr("src", resultsGiphy[i].images.fixed_height.url)).attr("id", i);
 					if( i < 5){
-							$("#row1").append(giphyLinks).attr("id", i);
+							$("#row1").append(giphyLinks);
 						}
 					else if (i >= 5){
-							$("#row2").append(giphyLinks).attr("id", i);
+							$("#row2").append(giphyLinks);
 						}
 					display = true;
 				}
