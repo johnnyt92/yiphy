@@ -44,17 +44,7 @@ $(document).on("click", "#price", function(){
 	})
 
 function yelpToken(){
-	$.ajax({
-		method: "POST",
-		url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token",
-		data: {'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret}
-	}).done(function(response3){
 		token = "Bearer " +  apiKey;
-		term = $("#textinput").val().trim();
-		if (term === ""){
-			term = randTerm[Math.floor((Math.random()*10)+1)]
-		}
-		location = $("#textinput2").val().trim();
 		$.ajax({
 			url: yelpUrl,
 			method: "GET",
@@ -67,6 +57,11 @@ function yelpToken(){
 			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + apiKey;
 			var display = false;
 			var yelpLink = "";
+			term = $("#textinput").val().trim();
+			if (term === ""){
+				term = randTerm[Math.floor((Math.random()*10)+1)]
+			}
+			location = $("#textinput2").val().trim();
 			$.ajax({
 				url: queryURL,
 				method: "GET"
@@ -106,7 +101,6 @@ function yelpToken(){
 			}
 		});
 	});
-	})
 }
 $(".type").click(function(){
    $(".type").removeClass("active");
