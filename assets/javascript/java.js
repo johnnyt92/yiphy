@@ -112,8 +112,8 @@ $(".type2").click(function(){
    $(this).addClass("active");
 });
 
-	$(document).on("click", "#search", yelpToken);
-	$("#textinput2").keydown(function(e){
+$(document).on("click", "#search", yelpToken);
+$("#textinput2").keydown(function(e){
     if(e.which === 13){
         yelpToken();
     }
