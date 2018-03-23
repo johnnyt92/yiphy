@@ -28,6 +28,7 @@ connectionsRef.on("value", function(snap){
 
 $( document ).ready(function() {
 var clientId = "GVzLb3etgppDU-TL0QTdmw";
+var yelpAPIKey = "wopcKzKvQ8zOzN6orh38QU_To8Z1LV8sM0xhJRdjimc30vz2WlSnHWrY0LZOL9fARaBtV5tYPdJnSh1ET_2tKHXB0KfgvoT_evx7Q1jlJI4IydM-OzjKfe79m4IQWnYx"
 var clientSecret = "WPZaGbBfqsgJcCxBIZPq6f61Dz38o3IWeBCZK1AywQInXMY2ufU4w9yN5tUHx8nV";
 var token = "";
 var yelpUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
@@ -44,7 +45,7 @@ $(document).on("click", "#price", function(){
 	})
 
 function yelpToken(){
-		token = "Bearer " +  config.apiKey;
+		token = "Bearer " + yelpAPIKey ;
 		$.ajax({
 			url: yelpUrl,
 			method: "GET",
