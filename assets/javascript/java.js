@@ -44,7 +44,7 @@ $(document).on("click", "#price", function(){
 	})
 
 function yelpToken(){
-		token = "Bearer " +  apiKey;
+		token = "Bearer " +  config.apiKey;
 		$.ajax({
 			url: yelpUrl,
 			method: "GET",
