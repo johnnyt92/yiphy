@@ -52,8 +52,8 @@ function yelpToken(){
 		}).done(function(response){
 			var resultsYelp = response.businesses;
 			var category = term;
-			var apiKey = "HnNAzp85eI02Rb98Lo5C1oOviJp4OHJT";
-			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + apiKey;
+			var giphyAPIKey = "HnNAzp85eI02Rb98Lo5C1oOviJp4OHJT";
+			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + giphyAPIKey;
 			var display = false;
 			var yelpLink = "";
 			term = $("#textinput").val().trim();
