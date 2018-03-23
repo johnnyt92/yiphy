@@ -49,7 +49,7 @@ function yelpToken(){
 		url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token",
 		data: {'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret}
 	}).done(function(response3){
-		token = "Bearer " + response3.access_token;
+		token = "Bearer " +  apiKey;
 		term = $("#textinput").val().trim();
 		if (term === ""){
 			term = randTerm[Math.floor((Math.random()*10)+1)]
