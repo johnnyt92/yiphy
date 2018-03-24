@@ -44,6 +44,11 @@ $(document).on("click", "#price", function(){
 
 function yelpToken(){
 		token = "Bearer " + yelpAPIKey ;
+		term = $("#textinput").val().trim();
+			if (term === ""){
+				term = randTerm[Math.floor((Math.random()*10)+1)]
+			}
+			location = $("#textinput2").val().trim();
 		$.ajax({
 			url: yelpUrl,
 			method: "GET",
@@ -56,11 +61,6 @@ function yelpToken(){
 			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + category + "&api_key=" + giphyAPIKey;
 			var display = false;
 			var yelpLink = "";
-			term = $("#textinput").val().trim();
-			if (term === ""){
-				term = randTerm[Math.floor((Math.random()*10)+1)]
-			}
-			location = $("#textinput2").val().trim();
 			$.ajax({
 				url: queryURL,
 				method: "GET"
